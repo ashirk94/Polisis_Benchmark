@@ -2,8 +2,16 @@
 # coding: utf-8
 
 # # Example of a Convolutional Neural Network (Multilabel) for Text Classification
+import os
 import nltk
-nltk.data.path.append("C:/Users/alan/AppData/Roaming/nltk_data")
+
+# Dynamically determines the NLTK data directory
+if os.name == "nt":  # Windows
+    nltk_data_dir = os.path.join(os.getenv("APPDATA"), "nltk_data")
+else:  # macOS/Linux
+    nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
+
+nltk.data.path.append(nltk_data_dir)
 
 # In[1]:
 
@@ -17,8 +25,8 @@ from collections import OrderedDict
 import matplotlib.pyplot as plt
 import numpy as np
 import pickle
-from os.path import join, isfile
-from os import listdir
+# from os.path import join, isfile
+# from os import listdir
 
 #Imports from the repository
 from data_processing import get_weight_matrix, get_tokens
@@ -82,6 +90,7 @@ def confusion_matrices_change(metrics_05, metrics_best_t):
     fn_ax.legend()
     
     #plt.show()
+    plt.close()
 
 
 # ## 1. Generating word embeddings matrix
@@ -272,7 +281,6 @@ epochs, train_losses, validation_losses, f1_scores_validations, precisions_valid
 # plt.plot(epochs, validation_losses, label = "validation")
 # plt.legend()
 # plt.title("loss vs epoch")
-import os
 
 # Ensure the directory exists
 output_dir = "trained_models_pics"
@@ -437,7 +445,6 @@ print("recall_label    |" + str(recall_label))
 # ## 5. Comparison between models
 
 # In[ ]:
-import os
 from argparse import ArgumentParser
 
 # Function to get default parameters

@@ -590,7 +590,7 @@ class CNN(nn.Module):
 
         ax_recall.legend()
 
-        plt.show()
+        #plt.show()
 
         # We show the overall F1, precision and recall for a threshold of 0.5 given by the variable threshold
         
@@ -647,7 +647,7 @@ class CNN(nn.Module):
             print(row_format.format(label, f1_label, precision_label, recall_label, ct_label, cv_label))
 
         # We save the figure into a picture
-        fig.savefig(fname = join("trained_models_pics" ,self.cnn_name + '.png'), format = 'png')
+        #fig.savefig(fname = join("trained_models_pics" ,self.cnn_name + '.png'), format = 'png')
         
     def print_results_best_t(self, validation_dataset, best_t):
         
@@ -786,7 +786,7 @@ class CNN(nn.Module):
 
         ax_recall.legend()
 
-        plt.show()
+        #plt.show()
 
         # We show the overall F1, precision and recall for a threshold of 0.5 given by the variable threshold
         f1, precision, recall = self.f1_score(y_validation, y_hat_validation, 0.5)
@@ -804,7 +804,7 @@ class CNN(nn.Module):
         #print("-" * 35 * 3)
 
         # We save the figure into a picture
-        fig.savefig(fname = join("trained_models_pics" ,self.cnn_name + '.png'), format = 'png')
+        #fig.savefig(fname = join("trained_models_pics" ,self.cnn_name + '.png'), format = 'png')
 
     @staticmethod
     def get_best_thresholds(y_test, y_hat_test, labels):
