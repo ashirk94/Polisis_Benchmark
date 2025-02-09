@@ -244,7 +244,7 @@ def get_glove_dicts(parent_folder, input_path, output_path, dims, read = False):
 
                 word2idx[word] = idx
 
-                vector = np.array(split_line[1:]).astype(np.float)
+                vector = np.array(split_line[1:]).astype(float)
 
                 vectors.append(vector)
                 
@@ -275,26 +275,28 @@ def get_fast_text_dicts(input_path, output_path, dims, missing = True, read = Fa
     """
     
     def append_from_file(words, word2idx, vectors, idx, input_path, file):
-        
-        with open(join(input_path, file) , encoding="utf8") as fast_text_file:
+        try:
+            with open(join(input_path, file) , encoding="utf8") as fast_text_file:
 
-            for line in fast_text_file:
-                """if idx == 158090:"""
+                for line in fast_text_file:
+                    """if idx == 158090:"""
 
 
-                split_line = line.split()
+                    split_line = line.split()
 
-                word = split_line[0]
+                    word = split_line[0]
 
-                words.append(word)
+                    words.append(word)
 
-                word2idx[word] = idx
+                    word2idx[word] = idx
 
-                vector = np.array(split_line[1:]).astype(np.float)
+                    vector = np.array(split_line[1:]).astype(np.float)
 
-                vectors.append(vector)
-                
-                idx += 1
+                    vectors.append(vector)
+                    
+                    idx += 1
+        except FileNotFoundError:
+            print(f"Warning: File {file} not found. Skipping FastText processing.")
                 
         return words, word2idx, vectors, idx
     
