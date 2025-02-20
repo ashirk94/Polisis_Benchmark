@@ -3,3 +3,4 @@ glove.6B
 embeddings_data
 UsersalanAppDataRoamingnltk_data
 trained_models_pics
+__pycache__

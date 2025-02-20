@@ -269,7 +269,7 @@ model.load_pretrained_embeddings(weights_matrix)
 # In[ ]:
 
 
-results = model.train_CNN(train_dataset, validation_dataset, lr = 0.01, epochs_num = 20, alpha = 0, momentum = 0.9)
+results = model.train_CNN(train_dataset, validation_dataset, lr = 0.01, epochs_num = 1, alpha = 0, momentum = 0.9)
 
 epochs, train_losses, validation_losses, f1_scores_validations, precisions_validations, recalls_validations = results
 
