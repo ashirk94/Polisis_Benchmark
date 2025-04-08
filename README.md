@@ -5,7 +5,7 @@ This repository is our effort to reproduce Polisis results for privacy policy cl
 Modified by Alan Shirk for Introduction to Privacy-Aware Computing final project.
 
 # Setup instructions
-1. Setup a virtual environment using any tool (e.g., pip) and activate it:
+1. Setup a virtual environment using any tool (e.g., pipenv) and activate it:
 ```
 pip install pipenv
 pipenv shell
